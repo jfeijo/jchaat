@@ -1,0 +1,227 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Inter", sans-serif;
+}
+
+//Colors
+$primary-color: #8f8dfa;
+$off-black: #555555;
+$light-grey: #e2e1e5;
+$green: #91bf70;
+$accent-purple: #5e5bff;
+$smooth-white: rgba(255, 255, 255, 0.637);
+
+//General Measures
+$font-size-bigger: 31px;
+$font-size: 15px;
+$wave-background: url("./Assets/Images/wave_background\ \(3\).png");
+$background-mobile: url("./Assets/Images/backgorund-mobile.png");
+$gap: 5rem;
+
+body {
+	background: $wave-background no-repeat;
+	background-size: 200%;
+	position: relative;
+
+	@media screen and (max-width: 951px) {
+		background: $background-mobile;
+		background-size: 110%;
+	}
+
+	textarea:focus,
+	input:focus {
+		outline: none;
+		font-size: larger;
+	}
+	input {
+		border: none;
+		background: none;
+	}
+
+	.form-wrapper {
+		position: absolute;
+		opacity: 0.96;
+		top: 15rem;
+		left: 50vw;
+		width: 350px;
+		transform: translatex(-50%);
+		background-color: $smooth-white;
+		padding: 4rem;
+		border-radius: 20px;
+		-webkit-box-shadow: 2px 5px 15px 12px rgba(192, 192, 192, 0.31);
+		box-shadow: 2px 5px 15px 4px rgba(192, 192, 192, 0.31);
+
+		.logo {
+			position: absolute;
+			width: 110px;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 17%;
+		}
+
+		.input-wrapper {
+			position: relative;
+			margin-top: $gap;
+			text-align: center;
+		}
+
+		.field {
+			border-radius: 20px;
+			padding: 12px 15px;
+			margin: 0.3rem auto;
+			border: 1px solid $light-grey;
+			width: 100%;
+			text-align: center;
+			font-size: $font-size;
+		}
+
+		.button {
+			background-color: $primary-color;
+			border: none;
+			border-radius: 128px;
+			padding: 12px 15px;
+			margin: 0.3rem auto;
+			text-align: center;
+			width: 100%;
+			color: white;
+			font-weight: 700;
+			font-size: $font-size;
+			transform: translateY(0.5rem);
+		}
+	}
+
+	.chat-wrapper {
+		position: absolute;
+		top: 15rem;
+		left: 50vw;
+		transform: translatex(-50%);
+		background-color: $smooth-white;
+		padding: 1rem;
+		border-radius: 20px;
+		-webkit-box-shadow: 2px 5px 15px 12px rgba(192, 192, 192, 0.31);
+		box-shadow: 2px 5px 15px 4px rgba(192, 192, 192, 0.31);
+
+		.leave-button {
+			background: none;
+			border: none;
+			font-weight: 800;
+			color: rgba(230, 78, 78, 0.836);
+			margin-left: 90.6%;
+			transform: translateY(2.2rem);
+		}
+
+		.logo {
+			width: 10rem;
+			opacity: 0.9;
+			margin-top: 1rem;
+			padding-left: calc($gap/3);
+			padding-bottom: 2rem;
+		}
+
+		.chat-body .message-container {
+			height: 16rem;
+			width: 40rem;
+			padding: 2rem 1rem 1rem calc($gap/3);
+			overflow-y: scroll;
+			overflow-x: hidden;
+			@media screen and (max-width: 896px) {
+				width: 70vw;
+			}
+
+			#you {
+				.message-content {
+					color: rgb(27, 27, 27);
+					font-weight: 500;
+					font-size: smaller;
+					background-color: #9b99fc50;
+					width: fit-content;
+					padding: 6px 10px;
+					border-radius: 128px;
+				}
+				.message-info {
+					font-size: 10px;
+					color: $off-black;
+					font-weight: 500;
+					padding: 5px 0px 5px 10px;
+				}
+			}
+			#other {
+				display: grid;
+				.message-content {
+					color: rgb(27, 27, 27);
+					font-weight: 500;
+					font-size: smaller;
+					justify-self: right;
+					background-color: #e2e2ff50;
+					width: fit-content;
+					padding: 6px 10px;
+					border-radius: 128px;
+				}
+				.message-info {
+					font-size: 10px;
+					color: $off-black;
+					justify-self: right;
+					font-weight: 500;
+					padding: 5px 0px 5px 10px;
+				}
+			}
+		}
+		.input-wrapper {
+			padding-top: calc($gap/4);
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			.input-chat {
+				width: 100%;
+				padding-left: calc($gap/3);
+				font-size: $font-size;
+			}
+			.button {
+				background-color: $primary-color;
+				border: 2px solid $accent-purple;
+				border-radius: 128px;
+				padding: 12px 15px;
+				width: 100px;
+				color: white;
+				justify-self: end;
+				font-weight: 700;
+				font-size: 16px;
+			}
+		}
+	}
+
+	//Scrollbar settings
+	::-webkit-scrollbar {
+		display: none;
+	}
+	::-webkit-scrollbar-button {
+		width: 0px;
+		height: 0px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #f7c0c0;
+		border: 28px none #ffffff;
+		border-radius: 50px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #ffcccc;
+	}
+	::-webkit-scrollbar-thumb:active {
+		background: #fdbfbf;
+	}
+	::-webkit-scrollbar-track {
+		background: #ffffff;
+		border: 14px none #ffffff;
+		border-radius: 80px;
+	}
+	::-webkit-scrollbar-track:hover {
+		background: #ffffff;
+	}
+	::-webkit-scrollbar-track:active {
+		background: #ffffff;
+	}
+	::-webkit-scrollbar-corner {
+		background: transparent;
+	}
+}
